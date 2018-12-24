@@ -19,7 +19,7 @@ class LoggedInNavbar extends React.Component<LoggedInNavbarProps, LoggedInNavbar
     }
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-success">
                 <a className="navbar-brand" href="#">Navbar</a>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto">

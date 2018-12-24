@@ -16,9 +16,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     }
     render() {
         return (
-            <div className="jumbotron">
-                <h1>Scoala Postliceala numarul 21</h1>
-                <h2 className="text-muted">Liceu cu profil tehnic</h2>
+            <div className="jumbotron mb-0">
+                <h1 className="text-center">Scoala Postliceala numarul 21</h1>
+                <h2 className="text-muted text-center">Liceu cu profil tehnic</h2>
             </div>
         );
     }

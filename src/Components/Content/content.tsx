@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router';
 import { CoursesPage, StudentsPage, TeachersPage, NotFoundPage, UsersPage } from '.';
 
 import * as path from '../Content/routesUrl';
+import LoginPage from './LoginPage';
 
 export interface MainContentProps {
 
@@ -20,12 +21,13 @@ class MainContent extends React.Component<MainContentProps, MainContentState> {
     }
     render() {
         return (
-            <div style={{ height: "300px" }}>
+            <div style={{ height: "400px" }}>
                 <Switch>
                     <Route path={path.coursesUrl} component={CoursesPage} />
                     <Route path={path.studentsUrl} component={StudentsPage} />
                     <Route path={path.teachersUrl} component={TeachersPage} />
                     <Route path={path.usersUrl} component={UsersPage} />
+                    <Route path={path.loginUrl} component={LoginPage} />
                     <Route component={NotFoundPage} />
                 </Switch>
             </div>
