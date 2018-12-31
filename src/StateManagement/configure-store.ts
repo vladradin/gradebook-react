@@ -4,5 +4,5 @@ import rootReducer from './Reducers/rootReducer';
 import thunk from 'redux-thunk';
 
 export default function ConfigureStore(initialState = {}) {
-    return createStore(rootReducer, initialState, applyMiddleware(thunk))
+    return createStore(rootReducer, applyMiddleware(thunk))
 }

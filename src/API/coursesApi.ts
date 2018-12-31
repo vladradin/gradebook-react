@@ -1,15 +1,12 @@
 import Course from "../Models/Course";
+import axios from 'axios';
+import * as apiUrls from "./apiUrls";
 
 class CoursesApi {
     getAllCourses(): Promise<Course[]> {
-        return new Promise((resolver, rejecter) => {
-            return resolver([
-                { Id: "3", Version: 1, Name: "Matematica" },
-                { Id: "4", Version: 1, Name: "Romana" },
-                { Id: "5", Version: 1, Name: "Chimie" },
-            ]);
-        })
+        return axios.get<Course[]>(apiUrls.courses).then(response => response.data);
     }
 }
 
-export { CoursesApi };
+var module = new CoursesApi();
+export { module as coursesApi };

@@ -7,9 +7,12 @@ import * as serviceWorker from './serviceWorker';
 
 import configureStore from './StateManagement/configure-store';
 
-const store = configureStore();
+const appStore = configureStore();
 
-ReactDOM.render(<Provider store={store}><App /></Provider>,
+ReactDOM.render(
+    <Provider store={appStore}>
+        <App />
+    </Provider>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
