@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { coursesApi } from '../../../API/coursesApi';
 import Course from '../../../Models/Course';
-import { connect, MapStateToPropsParam, MapStateToProps } from 'react-redux';
+import { connect } from 'react-redux';
 
-import { ifElse, isEmpty, not, compose } from 'ramda';
-import { mapCoursesToProps, mapDispatchToCourses } from './CoursePageMapping'
-import CourseState from '../../../StateManagement/Model/CourseState';
+import { ifElse } from 'ramda';
+import { mapCoursesToProps, mapDispatchToCourses } from './CoursePageMapping';
+import { notEmpty } from '../../../Models/HelperFunciton';
 
-const notEmpty = compose(not, isEmpty);
+
 
 export interface CourseDispatchProps {
     loadCourses(): void;
@@ -44,16 +43,16 @@ class CoursesPage extends React.Component<CoursesPageProps, CoursesPageState> {
         return (<p className="bg-warning">No courses</p>);
     }
 
+    createCourseElements = ifElse(notEmpty,
+        this.mapCourseToElements,
+        this.noCourseElement);
+
     render() {
         const { courses } = this.props;
 
-        const mapCourseToElement = ifElse(notEmpty,
-            this.mapCourseToElements,
-            this.noCourseElement);
-
         return (
             <div>
-                {mapCourseToElement(courses)}
+                {this.createCourseElements(courses)}
             </div>
         );
     }
