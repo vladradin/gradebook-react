@@ -1,6 +1,5 @@
 import { Action } from "redux";
 import Course from "../../Models/Course";
-import { object } from "prop-types";
 import { createPlainObject } from "../../Models/HelperFunciton";
 
 export const LOAD_COURSES = "Load Courses";
@@ -13,6 +12,8 @@ export const UPDATE_COURSE = "Update Course";
 
 export class LoadCourses implements Action {
     readonly type = LOAD_COURSES;
+
+    static Create = () => createPlainObject(LoadCourses, undefined);
 }
 
 export class LoadCoursesSuccesfull implements Action {

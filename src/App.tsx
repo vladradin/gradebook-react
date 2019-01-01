@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/font-awesome/css/font-awesome.css'
 import Header from './Components/Header/header';
 import Navbar from './Components/Navbar/navbar';
 import MainContent from './Components/Content/content';

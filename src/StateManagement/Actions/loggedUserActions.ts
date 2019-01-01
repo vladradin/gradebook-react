@@ -6,14 +6,13 @@ export const login = "Login";
 export const loginSuccesfull = "Login Succesfull";
 export const logout = "Logout";
 
-class Login implements Action<any>{
+class Login implements Action {
     readonly type = login;
     static create = () => createPlainObject(Login, undefined);
 }
 
-
-class LoginSuccesfull implements Action<any>{
-    readonly type = login;
+class LoginSuccesfull implements Action {
+    readonly type = loginSuccesfull;
     readonly loggedUser: User | {};
 
     constructor(loggedUser: User | {}) {
