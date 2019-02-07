@@ -3,37 +3,56 @@ import { Component } from 'react';
 import CoursesPage from '../Content/Courses/CoursesPage';
 import { Link, NavLink } from 'react-router-dom';
 
-import * as path from '../Content/routesUrl';
+import userIcon from '../../user.svg';
+
+import "../../App.css";
 
 export interface LoggedInNavbarProps {
 
 }
 
 export interface LoggedInNavbarState {
+    username:string
 }
 
 class LoggedInNavbar extends React.Component<LoggedInNavbarProps, LoggedInNavbarState> {
     constructor(props: LoggedInNavbarProps) {
         super(props);
-        this.state = {};
+        this.state = {username:"vlad radin"};
     }
+
+    oddEvent = (match:any, location:any) => {
+        debugger;
+        if (!match) {
+          return false
+        }
+        const eventID = parseInt(match.params.eventID)
+        return !isNaN(eventID) && eventID % 2 === 1
+      }
+      
+     
+
     render() {
         return (
             <nav>
                 <ul className="navbar-h">
                     <li className="nav-link">
-                        <Link to="courses">Cursuri</Link>
+                        <NavLink to="courses" isActive={this.oddEvent} exact activeClassName="active-link">Cursuri</NavLink>
                     </li>
                     <li className="nav-link">
-                        <Link to="teachers">Profesori</Link>
+                        <NavLink to="teachers" activeClassName={"active-link"}>Profesori</NavLink>
                     </li>
                     <li className="nav-link">
-                        <Link to="students">Elevi</Link>
+                        <NavLink to="students" activeClassName={"active-link"}>Elevi</NavLink>
                     </li>
                     <li className="nav-link">
-                        <Link to="users">Utilizatori</Link>
+                        <NavLink to="users" activeClassName="active-link">Utilizatori</NavLink>
                     </li>
                 </ul>
+                <div className="user-menu">
+                   <img src={userIcon} width="40px" height="40px"></img>
+                   <p>{this.state.username}</p>
+                </div>
             </nav>
         );
     }
